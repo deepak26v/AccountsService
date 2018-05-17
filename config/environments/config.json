@@ -1,0 +1,14 @@
+{
+    "http": {
+      "port": 8080
+    },
+    "dev" : {
+        "database": {
+          "username": "postgres",
+          "password": "admin",
+          "database": "rjj0_rewards",
+          "dialect": "postgres"
+        },
+        "moneris" : ""
+    }, "uat" : {}, "prod" : {}
+  }
