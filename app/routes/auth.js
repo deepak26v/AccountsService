@@ -4,7 +4,7 @@ var authRouter = express.Router();
 
 authRouter.get('/start/oauth', function(req, res) {
     request("https://httpbin.org/get", function(err, body){
-        res.json(bodys);
+        res.json(body);
     });
 });
 
