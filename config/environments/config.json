@@ -2,6 +2,10 @@
     "http": {
       "port": 8080
     },
+    "my_accounts_app" : {
+      "client_id": "1bde5c0e-9412-4550-af08-7a3492775922",
+      "client_secret": "http://httpbin.org/anything"
+    },
     "dev" : {
         "database": {
           "username": "postgres",
@@ -9,6 +13,10 @@
           "database": "rjj0_rewards",
           "dialect": "postgres"
         },
-        "moneris" : ""
+        "institutions" : {
+          "nordea" : {
+            "baseUrl" : "https://api.nordeaopenbanking.com"  
+          }
+        }
     }, "uat" : {}, "prod" : {}
   }
