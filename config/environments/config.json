@@ -4,7 +4,8 @@
     },
     "my_accounts_app" : {
       "client_id": "1bde5c0e-9412-4550-af08-7a3492775922",
-      "client_secret": "http://httpbin.org/anything"
+      "client_secret": "J0lJ7qD0dY4iS7sB2qL6wC5nD3pN2gL5nU4dR8fT2tF6qK2fX6",
+      "redirect_url": "http://httpbin.org/anything"
     },
     "dev" : {
         "database": {
@@ -15,7 +16,7 @@
         },
         "institutions" : {
           "nordea" : {
-            "baseUrl" : "https://api.nordeaopenbanking.com"  
+            "baseUrl" : "https://api.nordeaopenbanking.com/v1/authentication"
           }
         }
     }, "uat" : {}, "prod" : {}
