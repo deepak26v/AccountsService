@@ -12,7 +12,7 @@ authRouter.get('/start/oauth', function (req, res, next) {
 
     request({ url: institutionBaseUrl, qs: params, method: 'GET' }, function (err, response) {
         if (err == null) {
-            res.setHeader('Content-Type', 'application/json');
+            //res.setHeader('Content-Type', 'application/json');
             if(response != null) {
                 res.send(JSON.parse(response.body).args);
             }
@@ -31,7 +31,9 @@ authRouter.get('/authentication/get_access_token', function (req, res, next) {
 
     request({
         url: institutionBaseUrl + '/access_token',
-        headers: {'X-IBM-Client-ID' : clientId, 'X-IBM-Client-Secret' : clientSecret},
+        headers: {
+            'X-IBM-Client-ID' : clientId,
+            'X-IBM-Client-Secret' : clientSecret},
         form: {
             code: code,
             redirect_uri: redirect_url
@@ -39,7 +41,7 @@ authRouter.get('/authentication/get_access_token', function (req, res, next) {
         method: 'POST'
     }, function (err, response) {
         if(err == null) {
-            res.setHeader('Content-Type', 'application/json');
+            //res.setHeader('Content-Type', 'application/json');
             res.send(JSON.parse(response.body));
         }
     });

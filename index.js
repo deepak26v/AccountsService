@@ -11,6 +11,7 @@ serverConfig.start(app);
 //Define a test endPoint to verify app
 app.get('/', function(req, res){
     console.log('Hello World !!');
+    console.log(app._router.stack);
     res.end();
 });
 

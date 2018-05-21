@@ -35,5 +35,8 @@ module.exports = {
 
     function configureRouters (app) {
         var authRouter = require('../../app/routes/auth.js');
-        app.use('/accounts/v1', authRouter);
+        var accountsRouter = require('../../app/routes/accounts.js');
+
+        app.use('/myaccounts/v1', authRouter);
+        app.use('/myaccounts/v1/service', accountsRouter);
     }
