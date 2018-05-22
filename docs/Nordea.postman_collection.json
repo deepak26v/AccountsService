@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "39102aa9-1271-4fb4-b78c-e69b27e6f0ac",
+		"name": "Nordea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Start Oauth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0ba138f9-e6e7-424e-adbf-92ad6360a342",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"code\", jsonData.code);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/myaccounts/v1/start/oauth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"myaccounts",
+						"v1",
+						"start",
+						"oauth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0325cf19-8dc0-4024-a0d4-524e47ba9e60",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "7b2dbc9b-36f5-4f8a-ba34-91344d34e690",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"access_token\", jsonData.access_token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "code",
+						"value": "{{code}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/myaccounts/v1/authentication/get_access_token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"myaccounts",
+						"v1",
+						"authentication",
+						"get_access_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Accounts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access_token",
+						"value": "{{access_token}}"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/myaccounts/v1/service/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"myaccounts",
+						"v1",
+						"service",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Accounts Details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access_token",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "account_id",
+						"value": "123456"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/myaccounts/v1/service/account/details",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"myaccounts",
+						"v1",
+						"service",
+						"account",
+						"details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Accounts Txns",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "access_token",
+						"value": "{{access_token}}"
+					},
+					{
+						"key": "account_id",
+						"value": "FI6593857450293470-EUR"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/myaccounts/v1/service/account/transactions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"myaccounts",
+						"v1",
+						"service",
+						"account",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

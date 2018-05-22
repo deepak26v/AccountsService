@@ -16,7 +16,7 @@
         },
         "institutions" : {
           "nordea" : {
-            "baseUrl" : "https://api.nordeaopenbanking.com/v1/authentication"
+            "baseUrl" : "https://api.nordeaopenbanking.com"
           }
         }
     }, "uat" : {}, "prod" : {}

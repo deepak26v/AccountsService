@@ -10,7 +10,11 @@ authRouter.get('/start/oauth', function (req, res, next) {
     var redirect_url = configUtil.get(req.app, true, 'my_accounts_app:redirect_url');
     var params = { client_id: clientId, state: '', redirect_uri: redirect_url};
 
-    request({ url: institutionBaseUrl, qs: params, method: 'GET' }, function (err, response) {
+    request({
+                url: institutionBaseUrl + '/v1/authentication',
+                qs: params,
+                method: 'GET'
+            }, function (err, response) {
         if (err == null) {
             //res.setHeader('Content-Type', 'application/json');
             if(response != null) {
@@ -30,7 +34,7 @@ authRouter.get('/authentication/get_access_token', function (req, res, next) {
     var code = req.get('code');
 
     request({
-        url: institutionBaseUrl + '/access_token',
+        url: institutionBaseUrl + '/v1/authentication/access_token',
         headers: {
             'X-IBM-Client-ID' : clientId,
             'X-IBM-Client-Secret' : clientSecret},
